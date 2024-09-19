@@ -26,5 +26,5 @@ public class DetallesOrdenORM {
 
     @Column(nullable = false)
     private Double precio;
-
+//
 }
