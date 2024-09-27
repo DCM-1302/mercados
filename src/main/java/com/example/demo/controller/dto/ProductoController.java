@@ -13,6 +13,6 @@ public class ProductoController {
 
     @PostMapping(path="Producto")
     public String guardarProducto(@RequestBody ProductoDTO productoDTO) {
-
+        productoService.guardarProducto();
     }
 }
