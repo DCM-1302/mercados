@@ -21,7 +21,7 @@ public class ProductoService {
   nuevoProducto.setStock(stock);
   nuevoProducto.setTalla(talla);
   nuevoProducto.setMarca(marca);
-  ProductoJPA.save(nuevoProducto);
+  productoJPA.save(nuevoProducto);
   return true;
  }
 }
