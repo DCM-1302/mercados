@@ -17,7 +17,7 @@ public class ProductoService {
  private final ProductoJPA productoJPA;
  private final CategoriaJPA categoriaJPA;
 
- public void guardarProducto(String nombre, String descripcion, int precio,Long categoria,int stock,String talla, String marca) {
+ public ProductoORM guardarProducto(String nombre, String descripcion, double precio,Long categoria,int stock,String talla, String marca) {
   CategoriaORM categoriaORM= categoriaJPA.findById(categoria).orElseThrow(() -> new RuntimeException("No existe la categoria"));
   ProductoORM nuevoProducto = new ProductoORM();
   nuevoProducto.setNombre(nombre);
@@ -27,10 +27,10 @@ public class ProductoService {
   nuevoProducto.setStock(stock);
   nuevoProducto.setTalla(talla);
   nuevoProducto.setMarca(marca);
-  productoJPA.save(nuevoProducto);
+  return productoJPA.save(nuevoProducto);
  }
 
- public List<ProductoORM> obtenerProductos() {
+ public List<ProductoORM> consultarProductos() {
   return productoJPA.findAll();
  }
 }

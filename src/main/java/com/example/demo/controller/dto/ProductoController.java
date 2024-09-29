@@ -23,6 +23,6 @@ public class ProductoController {
 
     @GetMapping
     public List<ProductoORM> obtenerProductos() {
-        return productoService.obtenerProductos();
+        return productoService.consultarProductos();
     }
 }
