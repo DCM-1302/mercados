@@ -79,4 +79,12 @@ class ProductoServiceTest {
 
     }
 
+    @Test
+    void Given_NoExisteProducto_When_ConsultarProducto_Then_ThrowRuntimeException() {
+        Long Id =1L;
+        Mockito.when(productoJPA.findAll()).thenReturn(new ArrayList<>());
+        Assertions.assertThrows(RuntimeException.class,
+                () -> service.consultarProductos());
+    }
+
 }
