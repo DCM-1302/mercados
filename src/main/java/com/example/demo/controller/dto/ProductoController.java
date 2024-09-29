@@ -1,6 +1,7 @@
 package com.example.demo.controller.dto;
 
 import com.example.demo.controller.logica.ProductoService;
+import com.example.demo.db.orm.ProductoORM;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class ProductoController {
     }
 
     @GetMapping
-    public List<ProductoDTO> obtenerProductos() {
-        return productos;
+    public List<ProductoORM> obtenerProductos() {
+        return productoService.obtenerProductos();
     }
 }
