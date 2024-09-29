@@ -16,7 +16,7 @@ public class ProductoService {
  private final CategoriaJPA categoriaJPA;
 
  public boolean guardarProducto(String nombre, String descripcion, int precio,Long categoria,int stock,String talla, String marca) {
-  CategoriaORM categoriaORM= categoriaJPA.findById(categoria).orElseThrow();
+  CategoriaORM categoriaORM= categoriaJPA.findById(categoria).orElseThrow(() -> new RuntimeException("No existe la categoria"));
   ProductoORM nuevoProducto = new ProductoORM();
   nuevoProducto.setNombre(nombre);
   nuevoProducto.setDescripcion(descripcion);
