@@ -17,7 +17,7 @@ public class OrdenService {
     private final OrdenJPA ordenJPA;
     private final ProductoJPA productoJPA;
 
-    public boolean guardarOrden(Long producto, int cantidad ) {
+    public void guardarOrden(Long producto, int cantidad ) {
         ProductoORM productoORM= productoJPA.findById(producto).orElseThrow(() -> new RuntimeException("No existe el producto"));
         if(productoORM.getStock() < cantidad) {
             throw new RuntimeException("Stock insuficiente");
@@ -28,7 +28,6 @@ public class OrdenService {
         nuevaOrden.setCantidad(cantidad);
         nuevaOrden.setPrecio(this.calcularPrecioOrden(producto, cantidad));
         productoORM.setStock(productoORM.getStock() - cantidad);
-        return true;
     }
 
     public List<OrdenORM> consultarOrden(LocalDate fecha) {
