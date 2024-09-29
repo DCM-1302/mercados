@@ -16,7 +16,7 @@ public class ProductoController {
 
     @PostMapping(path="/producto")
     public String guardarProducto(@RequestBody ProductoDTO productoDTO) {
-        productoService.guardarProducto(productoDTO.nombre(),productoDTO.descripcion(),productoDTO.precio(),productoDTO.stock(),productoDTO.talla(),productoDTO.marca());
+        productoService.guardarProducto(productoDTO.nombre(),productoDTO.descripcion(),productoDTO.precio(),productoDTO.categoria(),productoDTO.stock(),productoDTO.talla(),productoDTO.marca());
         return "Producto creado";
     }
 

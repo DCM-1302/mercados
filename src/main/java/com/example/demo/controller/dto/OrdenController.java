@@ -10,4 +10,8 @@ public class OrdenController {
 
     private OrdenService ordenService;
 
+    @PostMapping(path="/registrar")
+    public String guardarOrden(@RequestBody OrdenDTO ordenDTO){
+        return "Venta registrada";
+    }
 }
