@@ -39,7 +39,7 @@ public class IntegrationTest {
         ResponseEntity<String> respuestaInsercion = restTemplate.postForEntity("/registrar", nuevaOrden, String.class);
         System.out.println(respuestaInsercion);
         Assertions.assertEquals("Orden guardada", respuestaInsercion.getBody());
-        ResponseEntity<List> resultado = restTemplate.getForEntity("/ventas?fecha=2024-09-29", List.class);
+        ResponseEntity<List> resultado = restTemplate.getForEntity("/ventas?fecha=2024-05-25", List.class);
         Assertions.assertFalse(Objects.requireNonNull(resultado.getBody()).isEmpty());
         Assertions.assertTrue(resultado.getStatusCode().is2xxSuccessful());
 
