@@ -21,7 +21,7 @@ public class ProductoController {
         return "Producto creado";
     }
 
-    @GetMapping
+    @GetMapping(path="/mercancia")
     public List<ProductoORM> obtenerProductos() {
         return productoService.consultarProductos();
     }
